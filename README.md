@@ -57,7 +57,7 @@ content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 ### @tailwind base: This directive adds Tailwind's basic foundational styles to your project. These are essential styles that provide consistent styling baseline across all browsers, similar to what a CSS reset does.
 ### @tailwind components: This injects any predefined component styles from Tailwind. These can include styles defined by Tailwind and any additional styles from plugins you might be using.
 ### @tailwind utilities: This directive adds utility classes that Tailwind provides. Utility classes are the core of Tailwind's design system, allowing you to style elements directly in your HTML by applying utility classes that represent specific CSS properties.
-### ./src/index.css
+> ./src/index.css
 ```
 @tailwind base;
 @tailwind components;
