@@ -3,7 +3,22 @@ import genereids from "../constants";
 // import { WatchListContext } from "../context/WatchListContext";
 
 const WatchList = () => {
-	const [ watchList, setWatchList ] = useState([]);
+	const [watchList, setWatchList] = useState([]);
+	const [search, setSearch] = useState("");
+	const [genreList, setGenreList] = useState([
+		"All Genres",
+		"Thriller",
+		"Action",
+	]);
+	const [currGenre, setCurrGenre] = useState("All Genres");
+
+	const handleSearch = (e) => {
+		setSearch(e.target.value);
+	};
+
+	const handleFilter = (genre) => {
+		setCurrGenre(genre);
+	};
 
 	useEffect(() => {
 		const moviesFromLocalStorage = JSON.parse(localStorage.getItem("movies"));
@@ -12,21 +27,77 @@ const WatchList = () => {
 		}
 	}, []);
 
-  const genre = (genre_id) => {
-    return genereids[genre_id];
-  };
+	useEffect(() => {
+		// there can be 10 movies belonging to thriller, action and comedy
+		let temp = watchList.map((movie) => {
+			return genereids[movie.genre_ids[0]];
+		});
+		temp = new Set(temp);
+		setGenreList(["All Genres", ...temp]);
+	}, [watchList]);
+
+	const genre = (genre_id) => {
+		return genereids[genre_id];
+	};
+
+	const handleAscendingRatings = () => {
+		const sortAscending = watchList.sort((movieObjA, movieObjB) => {
+			return movieObjA.vote_average - movieObjB.vote_average;
+		});
+		setWatchList([...sortAscending]);
+	};
+
+	const handleDescendingRatings = () => {
+		const sortDescending = watchList.sort((movieObjA, movieObjB) => {
+			return movieObjB.vote_average - movieObjA.vote_average;
+		});
+		setWatchList([...sortDescending]);
+	};
+
+	const Genre = () => (
+		<div className="flex justify-center m-4">
+			{genreList.map((genre) => {
+				const isActive = currGenre === genre;
+				const baseStyles =
+					"flex justify-center items-center h-[3rem] w-[8rem] rounded-lg text-white font-bold mx-4 hover:cursor-pointer";
+				const bgColor = isActive ? "bg-blue-400" : "bg-gray-400/50";
+				return (
+					<div
+						onClick={() => handleFilter(genre)}
+						className={`${baseStyles} ${bgColor}`}
+					>
+						{genre}
+					</div>
+				);
+			})}
+		</div>
+	);
+
+	const filteredMovies = () => {
+		return watchList
+			.filter((movie) => {
+				if (currGenre === "All Genres") {
+					return true;
+				} else {
+					return genereids[movie.genre_ids[0]] == currGenre;
+				}
+			})
+			.filter((movie) => {
+				return movie.title.toLowerCase().includes(search.toLowerCase());
+			});
+	};
 
 	return (
 		<>
-			{/* <Genre /> */}
+			<Genre />
 
 			<div className="flex justify-center my-10">
 				<input
 					placeholder="Search Movie"
 					className="h-[3rem] w-[18rem] bg-gray-200 px-4 outline-none border border-gray-300"
 					type="text"
-					// onChange={handleSearch}
-					// value={search}
+					onChange={handleSearch}
+					value={search}
 				/>
 			</div>
 			<div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -38,12 +109,12 @@ const WatchList = () => {
 								<div className="flex">
 									<div>
 										<i
-											// onClick={handleAscendingRatings}
+											onClick={handleAscendingRatings}
 											className="fa-solid fa-arrow-up mx-1 hover:cursor-pointer"
 										></i>
 										Ratings
 										<i
-											// onClick={handleDescendingRatings}
+											onClick={handleDescendingRatings}
 											className="fa-solid fa-arrow-down mx-1 hover:cursor-pointer"
 										></i>
 									</div>
@@ -62,7 +133,7 @@ const WatchList = () => {
 						</tr>
 					</thead>
 					<tbody className="divide-y divide-gray-100 border-t border-gray-100">
-						{watchList?.map((movie) => (
+						{filteredMovies().map((movie) => (
 							<tr className="hover:bg-gray-50" key={movie.id}>
 								<td className="flex items-center px-6 py-4 font-normal text-gray-900 gap-4">
 									<img

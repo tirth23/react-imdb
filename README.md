@@ -80,7 +80,8 @@ npm run dev
 ### It automatically transforms JSON data, making it easy to work with APIs that send or receive JSON.
 ### Axios includes features like request and response interception, automatic request retries, and the ability to cancel requests.
 
-
+API Key
 795a170375bd0d0eea11dcb26e4d1813
 
+API Read Access Token
 eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3OTVhMTcwMzc1YmQwZDBlZWExMWRjYjI2ZTRkMTgxMyIsIm5iZiI6MTcyODQ3MzI4Ni41MDQwMywic3ViIjoiNjcwNjY2MDE1OTdjMTI2ZjA3ZGRiYThhIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.gx2CD5D7vUbH8xGjDSHyIku2sO_qL8e7nB6GnHy33AI
