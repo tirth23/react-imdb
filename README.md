@@ -89,9 +89,5 @@ eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3OTVhMTcwMzc1YmQwZDBlZWExMWRjYjI2ZTRkMTgxMyIsIm5
 > https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
 
 ## Main Parts of Redux Toolkit
-1. Slices:
-a. A slice is like a part of your application's state.
-b. It contains the state, actions, and reducers for a specific part of your application.
-c. Think of a slice as a "slice of the pie" where each slice represents a piece of your overall state.
-2. Actions:
-a. Actions are objects that describe what happened in your app. For example, clicking a button might generate an action like { type: 'counter/increment' }.
+1. Slices: A slice is like a part of your application's state. It contains the state, actions, and reducers for a specific part of your application. Think of a slice as a "slice of the pie" where each slice represents a piece of your overall state.
+2. Actions: Actions are objects that describe what happened in your app. For example, clicking a button might generate an action like { type: 'counter/increment' }.
