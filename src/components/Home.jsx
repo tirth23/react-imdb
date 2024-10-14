@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "./Banner";
 import Movies from "./Movies";
+import WatchListContextWrapper from "../context/WatchListContext";
 // import Counter from "./Counter";
 // import TodoRedux from "./TodoRedux";
 
@@ -9,6 +10,10 @@ function Home() {
 		<div>
 			<Banner />
 			<Movies/>
+      {/* can also wrap individual components */}
+      {/* <WatchListContextWrapper>
+        <Movies/>
+      </WatchListContextWrapper> */}
 			{/* <Counter />
 			<TodoRedux /> */}
 		</div>

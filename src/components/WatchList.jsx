@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import genereids from "../constants";
-// import { WatchListContext } from "../context/WatchListContext";
+import { WatchListContext } from "../context/WatchListContext";
 
 const WatchList = () => {
-	const [watchList, setWatchList] = useState([]);
+	// const [watchList, setWatchList] = useState([]);
 	const [search, setSearch] = useState("");
 	const [genreList, setGenreList] = useState([
 		"All Genres",
@@ -11,6 +11,7 @@ const WatchList = () => {
 		"Action",
 	]);
 	const [currGenre, setCurrGenre] = useState("All Genres");
+	const { watchList, setWatchList } = useContext(WatchListContext);
 
 	const handleSearch = (e) => {
 		setSearch(e.target.value);
@@ -20,12 +21,13 @@ const WatchList = () => {
 		setCurrGenre(genre);
 	};
 
-	useEffect(() => {
-		const moviesFromLocalStorage = JSON.parse(localStorage.getItem("movies"));
-		if (moviesFromLocalStorage) {
-			setWatchList(moviesFromLocalStorage);
-		}
-	}, []);
+  /* Not required bcoz context used */
+	// useEffect(() => {
+	// 	const moviesFromLocalStorage = JSON.parse(localStorage.getItem("movies"));
+	// 	if (moviesFromLocalStorage) {
+	// 		setWatchList(moviesFromLocalStorage);
+	// 	}
+	// }, []);
 
 	useEffect(() => {
 		// there can be 10 movies belonging to thriller, action and comedy

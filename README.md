@@ -85,3 +85,5 @@ API Key
 
 API Read Access Token
 eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3OTVhMTcwMzc1YmQwZDBlZWExMWRjYjI2ZTRkMTgxMyIsIm5iZiI6MTcyODQ3MzI4Ni41MDQwMywic3ViIjoiNjcwNjY2MDE1OTdjMTI2ZjA3ZGRiYThhIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.gx2CD5D7vUbH8xGjDSHyIku2sO_qL8e7nB6GnHy33AI
+
+> https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
