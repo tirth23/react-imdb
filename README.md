@@ -72,22 +72,10 @@ npm run dev
 
 ## TMDB
 ### sigup with TMDB and generate an API key
-### https://api.themoviedb.org/3/trending/movie/day?api_key=api_key&language=en-US&page=1
+> https://api.themoviedb.org/3/trending/movie/day?api_key=api_key&language=en-US&page=1
 
 ## Axios
 ### Axios is a popular JavaScript library used to make HTTP requests from web browsers or Node.js. It helps you interact with web APIs to fetch or send data. Think of Axios as a tool that helps your web application talk to servers easily.
 ### Axios uses promises, which allow you to handle asynchronous operations in a cleaner and more readable way.
 ### It automatically transforms JSON data, making it easy to work with APIs that send or receive JSON.
 ### Axios includes features like request and response interception, automatic request retries, and the ability to cancel requests.
-
-API Key
-795a170375bd0d0eea11dcb26e4d1813
-
-API Read Access Token
-eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3OTVhMTcwMzc1YmQwZDBlZWExMWRjYjI2ZTRkMTgxMyIsIm5iZiI6MTcyODQ3MzI4Ni41MDQwMywic3ViIjoiNjcwNjY2MDE1OTdjMTI2ZjA3ZGRiYThhIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.gx2CD5D7vUbH8xGjDSHyIku2sO_qL8e7nB6GnHy33AI
-
-> https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
-
-## Main Parts of Redux Toolkit
-1. Slices: A slice is like a part of your application's state. It contains the state, actions, and reducers for a specific part of your application. Think of a slice as a "slice of the pie" where each slice represents a piece of your overall state.
-2. Actions: Actions are objects that describe what happened in your app. For example, clicking a button might generate an action like { type: 'counter/increment' }.
